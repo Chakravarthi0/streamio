@@ -1,0 +1,8 @@
+.category-list-container{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0 1rem;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 0 0 1.5rem 2rem;
+}
