@@ -1,0 +1,12 @@
+.chips-container {
+  padding: 4px 1rem;
+  background-color: var(--white-pure);
+  border-radius: 1.5rem;
+  border: 1.5px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.chips-container:hover{
+    background-color: var(--primary-color);
+    color: var(--white-pure);
+}
