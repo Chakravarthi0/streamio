@@ -1,0 +1,80 @@
+.video-card {
+  width: 36rem;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  height: 20rem;
+  width: 36rem;
+  cursor: pointer;
+}
+
+.duration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 4px;
+  padding: 2px;
+}
+
+.video-detail {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 7px;
+}
+.channel-avatar {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 26rem;
+}
+
+.action-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-actions {
+  position: absolute;
+  z-index: 2;
+  bottom: -1%;
+  right: 3%;
+  width: max-content;
+}
+
+.video-actions-list {
+  padding: 5px 1rem;
+}
+
+.video-action {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .video-card {
+    width: 28rem;
+  }
+
+  .image-container {
+    width: 28rem;
+    object-fit: contain;
+  }
+  .video-img {
+    object-fit: contain;
+  }
+  .duration {
+    bottom: 2rem;
+  }
+  .video-actions {
+    left: 26%;
+  }
+}
