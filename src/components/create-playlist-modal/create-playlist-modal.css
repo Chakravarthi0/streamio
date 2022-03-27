@@ -1,0 +1,19 @@
+.modal-container {
+  position: relative;
+  width: max-content;
+}
+
+.modal {
+    display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: var(--white-pure);
+  padding: 4rem;
+}
+
+.modal-close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
