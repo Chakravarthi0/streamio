@@ -1,0 +1,23 @@
+.video-card-with-delete{
+    position: relative;
+}
+
+.delete-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--white-pure);
+}
+
+@media screen and (max-width: 400px) {
+    .delete-btn-container{
+        top: 2.5rem;
+    }
+}

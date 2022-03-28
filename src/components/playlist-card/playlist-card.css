@@ -1,0 +1,12 @@
+.playlist-card-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.delete-btn{
+    cursor: pointer;
+}
