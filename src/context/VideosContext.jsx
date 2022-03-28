@@ -14,7 +14,7 @@ function VideosProvider({ children }) {
     (async () => {
       setIsLoading(true);
       try {
-        let response = await axios.get("/api/videos");
+        const response = await axios.get("/api/videos");
 
         if (response.status === 200) {
           setVideos(response.data.videos);
