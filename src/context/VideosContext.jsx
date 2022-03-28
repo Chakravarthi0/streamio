@@ -17,9 +17,7 @@ function VideosProvider({ children }) {
         let response = await axios.get("/api/videos");
 
         if (response.status === 200) {
-          console.log("success ", response);
           setVideos(response.data.videos);
-          console.log(videos);
         }
       } catch (err) {
         console.log(err);
