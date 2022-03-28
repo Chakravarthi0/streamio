@@ -6,3 +6,5 @@ export { PasswordInput } from "./password-input/PasswordInput";
 export { PlaylistCard } from "./playlist-card/PlaylistCard";
 export { CreatePlaylistModal } from "./create-playlist-modal/CreatePlaylistModal";
 export { VideoCardWithDelete } from "./video-card-with-delete/VideoCardWithDelete";
+export { Loader } from "./loader/Loader";
+export { LoadingError } from "./loading-error/LoadingError";
