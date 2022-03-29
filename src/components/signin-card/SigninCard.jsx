@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {PasswordInput} from "../index"
-import { Link } from "react-router-dom";
 import "./signin-card.css";
-
+import { Link } from "react-router-dom";
+import  {PasswordInput} from "../index";
+import { useAuth } from "../../context/index";
 
 function SigninCard() {
   const [signInInput, setSignInInput] = useState({
@@ -13,7 +13,17 @@ function SigninCard() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const {userEmail, password, rememberMe} = signInInput;
+  const { signIn } = useAuth();
+  const { userEmail, password, rememberMe } = signInInput;
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmitted) {
+      signIn({
+        email: userEmail,
+        password,
+      });
+    }
+  }, [formErrors]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +49,10 @@ function SigninCard() {
       userEmail: "johndoe@gmail.com",
       password: 12345678,
       rememberMe: false,
+    });
+    signIn({
+      email: "johndoe@gmail.com",
+      password: 12345678,
     });
   };
 
@@ -120,4 +134,4 @@ function SigninCard() {
   );
 }
 
-export {SigninCard};
+export { SigninCard };
