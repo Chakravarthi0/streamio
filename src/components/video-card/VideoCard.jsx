@@ -1,16 +1,26 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { useHistory, useAuth } from "../../context/index";
 import "./video-card.css";
 
 function VideoCard({ video }) {
+  const {
+    authState: { token },
+  } = useAuth();
+  const { addToHistory } = useHistory();
 
-    const [isModalOpen,setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { _id, title, channel, channelAvatar, views, duration } = video;
 
-
   const toggleModal = () => {
-    setIsModalOpen(prev => !prev)
-  }
+    setIsModalOpen((prev) => !prev);
+  };
+
+  const clickHandler = () => {
+    if (token) {
+      addToHistory(video);
+    }
+  };
 
   return (
     <div className="video-card">
@@ -19,6 +29,7 @@ function VideoCard({ video }) {
           className="video-img img-responsive"
           src={`https://i.ytimg.com/vi/${_id}/maxresdefault.jpg`}
           alt={title}
+          onClick={clickHandler}
         />
         <span className="duration bg-black white">{duration}</span>
       </div>
@@ -30,20 +41,22 @@ function VideoCard({ video }) {
         </div>
         <div className="action-icon" onClick={toggleModal}>
           <i className="fas fa-ellipsis-v"></i>
-          </div>
+        </div>
       </div>
-     { isModalOpen && <div className="video-actions bg-white-pure">
-        <ul className="list video-actions-list">
-          <li className="video-action">
-            <i className="fas fa-clock"></i>
-            <span>Save to watch Later</span>
-          </li>
-          <li className="video-action">
-            <i className="fas fa-folder-plus"></i>
-            <span>Save to playlist</span>
-          </li>
-        </ul>
-      </div>}
+      {isModalOpen && (
+        <div className="video-actions bg-white-pure">
+          <ul className="list video-actions-list">
+            <li className="video-action">
+              <i className="fas fa-clock"></i>
+              <span>Save to watch Later</span>
+            </li>
+            <li className="video-action">
+              <i className="fas fa-folder-plus"></i>
+              <span>Save to playlist</span>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

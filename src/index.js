@@ -8,6 +8,7 @@ import {
   AuthProvider,
   VideosProvider,
   CategoryProvider,
+  HistoryProvider,
 } from "./context/index";
 
 // Call make Server
@@ -18,9 +19,11 @@ ReactDOM.render(
     <Router>
       <AuthProvider>
         <VideosProvider>
-          <CategoryProvider>
-            <App />
-          </CategoryProvider>
+          <HistoryProvider>
+            <CategoryProvider>
+              <App />
+            </CategoryProvider>
+          </HistoryProvider>
         </VideosProvider>
       </AuthProvider>
     </Router>
