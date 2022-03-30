@@ -32,8 +32,13 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 3px;
   width: 26rem;
+  margin-top: 3px;
+}
+
+.meta-data{
+  font-size: 1.4rem;
 }
 
 .action-icon {
