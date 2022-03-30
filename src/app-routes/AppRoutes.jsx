@@ -11,6 +11,7 @@ import {
   WatchLater,
   History,
   SinglePlaylist,
+  LikedVideos
 } from "../pages/index";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 
@@ -22,7 +23,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/explore" element={<Explore />}></Route>
-      <Route path="/video" element={<SingleVideo />}></Route>
+      <Route path="/videos/:videoId" element={<SingleVideo />}></Route>
       {!token ? (
         <>
           <Route path="/signup" element={<SignUp />}></Route>
@@ -39,6 +40,7 @@ function AppRoutes() {
         <Route path="/playlist" element={<Playlist />}></Route>
         <Route path="/single-playlist" element={<SinglePlaylist />}></Route>
         <Route path="/watchlater" element={<WatchLater />}></Route>
+        <Route path="/liked" element={<LikedVideos />}></Route>
         <Route path="/history" element={<History />}></Route>
       </Route>
     </Routes>
