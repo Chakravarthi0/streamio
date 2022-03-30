@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { authReducer } from "../reducers/index";
 import { useNavigate } from "react-router-dom";
-import { actionTypes } from "../reducers/index";
+import { authActions } from "../reducers/index";
 import axios from "axios";
 
 const authContext = createContext({});
 
 const useAuth = () => useContext(authContext);
 
-const { SIGN_IN, SIGN_OUT } = actionTypes;
+const { SIGN_IN, SIGN_OUT } = authActions;
 
 function AuthProvider({ children }) {
   const navigate = useNavigate();

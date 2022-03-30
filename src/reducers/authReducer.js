@@ -1,6 +1,6 @@
-import { actionTypes } from "./actionTypes";
+import { authActions } from "./actionTypes";
 
-const { SIGN_IN, SIGN_OUT } = actionTypes;
+const { SIGN_IN, SIGN_OUT } = authActions;
 
 const authReducer = (state, action) => {
   switch (action.type) {
