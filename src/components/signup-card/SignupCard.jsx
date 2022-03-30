@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {PasswordInput} from "../index"
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/index";
+import  {PasswordInput} from "../index";
 import "../signin-card/signin-card.css";
 
 function SignupCard() {
@@ -15,12 +16,18 @@ function SignupCard() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const { signUp } = useAuth();
   const { firstName, lastName, userEmail, password, confirmPassword } =
     signUpInput;
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmitted) {
-
+      signUp({
+        email: userEmail,
+        password,
+        firstName,
+        lastName,
+      });
     }
   }, [formErrors]);
 
@@ -45,7 +52,8 @@ function SignupCard() {
   const validateInput = (inputs) => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    const passwordRegex =
+      /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (!inputs.firstName) {
       errors.firstName = "Firstname is required";
     }
@@ -59,8 +67,9 @@ function SignupCard() {
     }
     if (!inputs.password) {
       errors.password = "Password is required";
-    }else if (!passwordRegex.test(inputs.password)) {
-      errors.password = "Password should contain atleast 1 number, 1 lower case, 1 uppercase and 1 special character";
+    } else if (!passwordRegex.test(inputs.password)) {
+      errors.password =
+        "Password should contain atleast 1 number, 1 lower case, 1 uppercase and 1 special character";
     }
     if (inputs.confirmPassword !== inputs.password) {
       errors.confirmPassword = "Passwords don't match";
@@ -110,12 +119,20 @@ function SignupCard() {
         </div>
         <div className="input-container">
           <label>Password</label>
-          <PasswordInput name="password" inputValue={password} handleInputChange={handleInputChange} />
+          <PasswordInput
+            name="password"
+            inputValue={password}
+            handleInputChange={handleInputChange}
+          />
           <p className="validation-msg danger">{formErrors.password}</p>
         </div>
         <div className="input-container">
           <label>Confirm Password</label>
-          <PasswordInput name={"confirmPassword"} inputValue={confirmPassword} handleInputChange={handleInputChange} />
+          <PasswordInput
+            name={"confirmPassword"}
+            inputValue={confirmPassword}
+            handleInputChange={handleInputChange}
+          />
           <p className="validation-msg danger">{formErrors.confirmPassword}</p>
         </div>
         <div>
@@ -149,4 +166,4 @@ function SignupCard() {
   );
 }
 
-export {SignupCard};
+export { SignupCard };
