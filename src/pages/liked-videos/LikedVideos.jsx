@@ -8,7 +8,6 @@ function LikedVideos() {
     likesState: { likes, error, loading },
   } = useLikes();
 
-  console.log(useLikes());
   return (
     <div>
       <h1 className="page-title text-center">Liked videos</h1>
