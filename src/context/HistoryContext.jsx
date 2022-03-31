@@ -28,6 +28,8 @@ function HistoryProvider({ children }) {
         } catch (err) {
           console.log(err);
         }
+      } else {
+        setHistory([]);
       }
     })();
   }, [token]);

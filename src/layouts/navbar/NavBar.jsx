@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from "../../context/index";
 import { useLocation, Link } from "react-router-dom";
 import "./navbar.css";
 function NavBar() {
+  const {
+    signOut,
+    authState: { token },
+  } = useAuth();
   const { pathname } = useLocation();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -33,6 +38,19 @@ function NavBar() {
               Sign In
             </Link>
           </li>
+          {token ? (
+            <li>
+              <p className="link white nav-link" onClick={signOut}>
+                Sign Out
+              </p>
+            </li>
+          ) : (
+            <li>
+              <Link className="link white nav-link" to={"/signin"}>
+                Sign In
+              </Link>
+            </li>
+          )}
         </ul>
         <i className={"material-icons hamburger-icon"} onClick={toggleIsOpen}>
           {isNavOpen ? "close" : "menu"}
@@ -41,4 +59,4 @@ function NavBar() {
     </header>
   );
 }
-export {NavBar};
+export { NavBar };

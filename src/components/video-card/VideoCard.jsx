@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useHistory, useAuth } from "../../context/index";
+import { useNavigate } from "react-router-dom";
 import "./video-card.css";
 
 function VideoCard({ video }) {
+  const navigate = useNavigate();
   const {
     authState: { token },
   } = useAuth();
@@ -10,7 +12,8 @@ function VideoCard({ video }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { _id, title, channel, channelAvatar, views, duration } = video;
+  const { _id, title, channel, channelAvatar, views, duration, created } =
+    video;
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -20,6 +23,7 @@ function VideoCard({ video }) {
     if (token) {
       addToHistory(video);
     }
+    navigate(`/videos/${_id}`);
   };
 
   return (
@@ -36,9 +40,14 @@ function VideoCard({ video }) {
       <div className="video-detail">
         <img className="channel-avatar" src={channelAvatar} alt={channel} />
         <div className="about">
-          <div>{title}</div>
-          <div>{channel}</div>
+          <div className="video-card-title">{title}</div>
+          <div className="meta-data">{channel}</div>
+          <div className="flex align-center">
+            <div className="meta-data">{views} views</div> |
+            <div className="meta-data">{created} ago</div>
+          </div>
         </div>
+
         <div className="action-icon" onClick={toggleModal}>
           <i className="fas fa-ellipsis-v"></i>
         </div>
