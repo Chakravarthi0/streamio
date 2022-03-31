@@ -1,9 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useVideos, useLikes } from "../../context/index";
+import { useParams, useNavigate } from "react-router-dom";
+import { useVideos, useLikes, useAuth } from "../../context/index";
 import "./single-video.css";
 
 function SingleVideo() {
+  const {
+    authState: { token },
+  } = useAuth();
   const { videos } = useVideos();
 
   const {
@@ -13,6 +16,8 @@ function SingleVideo() {
   } = useLikes();
 
   const { videoId } = useParams();
+
+  const navigate = useNavigate();
 
   const video = videos.find((video) => video._id === videoId);
 
@@ -42,12 +47,15 @@ function SingleVideo() {
                 }
                 aria-hidden="true"
                 onClick={
-                  isLiked
-                    ? () => removeFromLikes(video?._id)
-                    : () => addToLikes(video)
+                  token
+                    ? isLiked
+                      ? () => removeFromLikes(video?._id)
+                      : () => addToLikes(video)
+                    : () => navigate("/signin")
                 }
               ></i>
-              <i className="fas gray fa-folder-plus" aria-hidden="true"></i>
+              <i class="fas fa-clock gray" aria-hidden="true"></i>
+              <i className="fas fa-folder-plus gray" aria-hidden="true"></i>
             </div>
             <div className="channel-detail">
               <img

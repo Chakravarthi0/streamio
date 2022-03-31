@@ -11,7 +11,7 @@ import {
   WatchLater,
   History,
   SinglePlaylist,
-  LikedVideos
+  LikedVideos,
 } from "../pages/index";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 

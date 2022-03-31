@@ -27,8 +27,8 @@ function VideoCard({ video }) {
   const clickHandler = () => {
     if (token) {
       addToHistory(video);
-      navigate(`/videos/${_id}`);
     }
+    navigate(`/videos/${_id}`);
   };
 
   return (

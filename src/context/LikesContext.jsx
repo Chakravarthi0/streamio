@@ -39,6 +39,8 @@ function LikesProvider({ children }) {
         } finally {
           likesDispatch({ type: SET_LOADING, payload: false });
         }
+      } else {
+        likesDispatch({ type: SET_LIKES, payload: [] });
       }
     })();
   }, [token]);
