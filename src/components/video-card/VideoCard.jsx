@@ -12,13 +12,8 @@ function VideoCard({ video }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { _id, channel, channelAvatar, views, duration, created } = video;
-
-  let { title } = video;
-
-  if (title.length > 34) {
-    title = title.substr(0, 30) + "...";
-  }
+  const { _id, title, channel, channelAvatar, views, duration, created } =
+    video;
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -45,7 +40,7 @@ function VideoCard({ video }) {
       <div className="video-detail">
         <img className="channel-avatar" src={channelAvatar} alt={channel} />
         <div className="about">
-          <div>{title}</div>
+          <div className="video-card-title">{title}</div>
           <div className="meta-data">{channel}</div>
           <div className="flex align-center">
             <div className="meta-data">{views} views</div> |

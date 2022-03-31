@@ -24,6 +24,14 @@
   align-items: center;
   margin-top: 7px;
 }
+
+.video-card-title {
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
 .channel-avatar {
   border-radius: 50%;
   height: 5rem;
@@ -37,7 +45,7 @@
   margin-top: 3px;
 }
 
-.meta-data{
+.meta-data {
   font-size: 1.4rem;
 }
 
