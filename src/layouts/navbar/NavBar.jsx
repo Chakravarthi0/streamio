@@ -33,20 +33,15 @@ function NavBar() {
 
       <nav>
         <ul className={"list nav-links-container"}>
-          <li>
-            <Link className="link nav-link" to={"/signin"}>
-              Sign In
-            </Link>
-          </li>
           {token ? (
             <li>
-              <p className="link white nav-link" onClick={signOut}>
+              <p className="link nav-link" onClick={signOut}>
                 Sign Out
               </p>
             </li>
           ) : (
             <li>
-              <Link className="link white nav-link" to={"/signin"}>
+              <Link className="link nav-link" to={"/signin"}>
                 Sign In
               </Link>
             </li>
