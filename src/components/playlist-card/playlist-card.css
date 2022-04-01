@@ -1,12 +1,16 @@
-.playlist-card-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    padding: 1rem;
-    cursor: pointer;
+.playlist-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  word-break: break-all;
+  height: max-content;
 }
-
-.delete-btn{
-    cursor: pointer;
+.playist-card-title {
+  min-width: 3rem;
+  padding-right: 3rem;
+}
+.delete-btn {
+  cursor: pointer;
 }
