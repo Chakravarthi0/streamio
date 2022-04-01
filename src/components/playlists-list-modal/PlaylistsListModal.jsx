@@ -17,25 +17,28 @@ function PlaylistsListModal({ setIsModalOpen, video }) {
     <div className="modal-bg playlist-lists-modal-bg">
       <div className="modal-container">
         <div className="modal playlists-list-modal">
-          {!loading &&
-            playlists.map((ele) => {
-              return (
-                <label key={ele._id} className="pointer">
-                  <input
-                    type="checkbox"
-                    name={ele.title}
-                    checked={ele.videos.find((curr) => curr._id === video._id)}
-                    onChange={() =>
-                      ele.videos.find((curr) => curr._id === video._id)
-                        ? deleteFromPlaylist(ele._id, video._id)
-                        : addToPlaylist(ele._id, video)
-                    }
-                  />
-                  <span className="filter-name">{ele.title}</span>
-                </label>
-              );
-            })}
-
+          <div className="playlists-listing">
+            {!loading &&
+              playlists.map((ele) => {
+                return (
+                  <label key={ele._id} className="pointer">
+                    <input
+                      type="checkbox"
+                      name={ele.title}
+                      checked={ele.videos.find(
+                        (curr) => curr._id === video._id
+                      )}
+                      onChange={() =>
+                        ele.videos.find((curr) => curr._id === video._id)
+                          ? deleteFromPlaylist(ele._id, video._id)
+                          : addToPlaylist(ele._id, video)
+                      }
+                    />
+                    <span className="filter-name">{ele.title}</span>
+                  </label>
+                );
+              })}
+          </div>
           {loading && <Loader small={true} />}
 
           {!isCreatingPlaylist && (
