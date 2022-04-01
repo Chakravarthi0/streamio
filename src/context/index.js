@@ -3,3 +3,4 @@ export { CategoryProvider, useCategory } from "./CategoryContext";
 export { AuthProvider, useAuth } from "./authContext";
 export { HistoryProvider, useHistory } from "./HistoryContext";
 export { LikesProvider, useLikes } from "./LikesContext";
+export { PlaylistProvider, usePlaylist } from "./PlaylistContext";

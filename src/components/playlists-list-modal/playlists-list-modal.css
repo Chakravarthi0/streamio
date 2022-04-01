@@ -1,0 +1,25 @@
+.playlist-lists-modal-bg {
+  z-index: 3;
+}
+
+.playlists-list-modal {
+  gap: 1rem;
+  padding: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 35rem;
+}
+
+.playlists-listing {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  max-height: 10rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.filter-name {
+  margin-left: 1rem;
+  display: inline;
+}

@@ -9,4 +9,11 @@ const likesActions = {
   SET_ERROR: "SET_ERROR",
 };
 
-export { authActions, likesActions };
+const playlistActions = {
+  SET_PLAYLISTS: "SET_PLAYLISTS",
+  SET_PLAYLIST: "SET_PLAYLIST",
+  SET_LOADING: "SET_LOADING",
+  SET_ERROR: "SET_ERROR",
+};
+
+export { authActions, likesActions, playlistActions };

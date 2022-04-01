@@ -52,8 +52,25 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
 }
 
+.btn-wide {
+  width: 100%;
+  margin: auto;
+}
+
 .pointer {
   cursor: pointer;
+}
+
+.justify-center {
+  justify-items: center;
+}
+
+.as-center {
+  align-self: center;
+}
+
+.js-center {
+  justify-self: center;
 }
 
 .align-center {

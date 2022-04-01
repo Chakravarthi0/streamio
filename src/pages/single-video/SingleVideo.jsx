@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { PlaylistsListModal } from "../../components/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useVideos, useLikes, useAuth } from "../../context/index";
 import "./single-video.css";
 
 function SingleVideo() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     authState: { token },
   } = useAuth();
@@ -25,6 +27,9 @@ function SingleVideo() {
 
   return (
     <div className="single-video">
+      {isModalOpen && (
+        <PlaylistsListModal setIsModalOpen={setIsModalOpen} video={video} />
+      )}
       {video && (
         <div className="single-video-body">
           <div>
@@ -54,8 +59,14 @@ function SingleVideo() {
                     : () => navigate("/signin")
                 }
               ></i>
-              <i class="fas fa-clock gray" aria-hidden="true"></i>
-              <i className="fas fa-folder-plus gray" aria-hidden="true"></i>
+              <i className="fas fa-clock gray pointer" aria-hidden="true"></i>
+              <i
+                className="fas fa-folder-plus gray pointer"
+                aria-hidden="true"
+                onClick={() =>
+                  token ? setIsModalOpen(true) : navigate("/signin")
+                }
+              ></i>
             </div>
             <div className="channel-detail">
               <img
@@ -78,16 +89,16 @@ function SingleVideo() {
 
             <button className="btn btn-primary black">Add Note</button>
 
-            <div class="card">
-              <p class="card-title text-center">Title</p>
-              <p class="card-description">
+            <div className="card">
+              <p className="card-title text-center">Title</p>
+              <p className="card-description">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
                 in consequuntur quis.
               </p>
             </div>
-            <div class="card">
-              <p class="card-title text-center">Title</p>
-              <p class="card-description">
+            <div className="card">
+              <p className="card-title text-center">Title</p>
+              <p className="card-description">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
                 in consequuntur quis.
               </p>

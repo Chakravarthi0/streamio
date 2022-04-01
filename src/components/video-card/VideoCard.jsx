@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useAuth } from "../../context/index";
 import { useNavigate } from "react-router-dom";
+import { PlaylistsListModal } from "../index";
 import "./video-card.css";
 
 function VideoCard({ video }) {
@@ -10,13 +11,14 @@ function VideoCard({ video }) {
   } = useAuth();
   const { addToHistory } = useHistory();
 
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { _id, title, channel, channelAvatar, views, duration, created } =
     video;
 
   const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
+    setIsOptionsOpen((prev) => !prev);
   };
 
   const clickHandler = () => {
@@ -28,6 +30,9 @@ function VideoCard({ video }) {
 
   return (
     <div className="video-card">
+      {isModalOpen && (
+        <PlaylistsListModal setIsModalOpen={setIsModalOpen} video={video} />
+      )}
       <div className="image-container">
         <img
           className="video-img img-responsive"
@@ -52,14 +57,19 @@ function VideoCard({ video }) {
           <i className="fas fa-ellipsis-v"></i>
         </div>
       </div>
-      {isModalOpen && (
+      {isOptionsOpen && (
         <div className="video-actions bg-white-pure">
           <ul className="list video-actions-list">
             <li className="video-action">
               <i className="fas fa-clock"></i>
               <span>Save to watch Later</span>
             </li>
-            <li className="video-action">
+            <li
+              className="video-action"
+              onClick={() => {
+                token ? setIsModalOpen(true) : navigate("/signin");
+              }}
+            >
               <i className="fas fa-folder-plus"></i>
               <span>Save to playlist</span>
             </li>

@@ -14,7 +14,7 @@ function AsideNavBar() {
         </li>
 
         <li>
-          <Link className="link aside-nav-link" to={"/playlist"}>
+          <Link className="link aside-nav-link" to={"/playlists"}>
             <i className="fas fa-folder-plus"></i>
             <span>Playlist</span>
           </Link>
@@ -22,7 +22,7 @@ function AsideNavBar() {
 
         <li>
           <Link className="link aside-nav-link" to={"/liked"}>
-            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+            <i className="fas fa-thumbs-up" aria-hidden="true"></i>
             <span>Liked videos</span>
           </Link>
         </li>

@@ -1,22 +1,24 @@
 import React from "react";
-import {useNavigate} from "react-router-dom";
+import { usePlaylist } from "../../context/index";
+import { useNavigate } from "react-router-dom";
 import "./playlist-card.css";
 
-const playlist = {
-  name: "Playlist #1",
-  videoCount: 10,
-};
-
-function PlaylistCard() {
+function PlaylistCard({ playlist }) {
+  const { title, _id } = playlist;
   const navigate = useNavigate();
-  const { name, videoCount } = playlist;
+  const { deletePlaylist } = usePlaylist();
   return (
-    <div className="playlist-card-container bg-white-pure" onClick={() => navigate("/single-playlist")}>
-      <div>
-        <h4>{name}</h4>
-        <p>{videoCount} videos</p>
+    <div className="playlist-card-container bg-white-pure">
+      <div
+        className="playist-card-title"
+        onClick={() => navigate(`/playlists/${playlist._id}`)}
+      >
+        <h4>{title}</h4>
       </div>
-      <i className="fas fa-trash-alt delete-btn"></i>
+      <i
+        className="fas fa-trash-alt delete-btn"
+        onClick={() => deletePlaylist(_id)}
+      ></i>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import {
   SingleVideo,
   SignIn,
   SignUp,
-  Playlist,
+  Playlists,
   WatchLater,
   History,
   SinglePlaylist,
@@ -37,8 +37,11 @@ function AppRoutes() {
       )}
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/playlist" element={<Playlist />}></Route>
-        <Route path="/single-playlist" element={<SinglePlaylist />}></Route>
+        <Route path="/playlists" element={<Playlists />}></Route>
+        <Route
+          path="/playlists/:playlistId"
+          element={<SinglePlaylist />}
+        ></Route>
         <Route path="/watchlater" element={<WatchLater />}></Route>
         <Route path="/liked" element={<LikedVideos />}></Route>
         <Route path="/history" element={<History />}></Route>
