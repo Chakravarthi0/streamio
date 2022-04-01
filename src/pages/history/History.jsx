@@ -18,7 +18,7 @@ function History() {
           <VideoCardWithDelete
             key={video._id}
             video={video}
-            onDelete={removeFromHistory}
+            onDelete={() => removeFromHistory(video._id)}
           />
         ))}
       </div>
