@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./aside-navbar.css";
 
 function AsideNavBar() {
@@ -7,36 +7,84 @@ function AsideNavBar() {
     <aside className="aside-navbar">
       <ul className="list aside-nav-links-container">
         <li>
-          <Link className="link aside-nav-link" to={"/explore"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/"}
+          >
+            <i className="fas fa-home"></i>
+            <span>Home</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/explore"}
+          >
             <i className="fas fa-compass"></i>
             <span>Explore</span>
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link className="link aside-nav-link" to={"/playlists"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/playlists"}
+          >
             <i className="fas fa-folder-plus"></i>
             <span>Playlist</span>
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link className="link aside-nav-link" to={"/liked"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/liked"}
+          >
             <i className="fas fa-thumbs-up" aria-hidden="true"></i>
             <span>Liked videos</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link aside-nav-link" to={"/watchlater"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/watchlater"}
+          >
             <i className="fas fa-clock"></i>
             <span>Watch Later</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link aside-nav-link" to={"/history"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "link aside-nav-link active-aside-link"
+                : "link aside-nav-link gray"
+            }
+            to={"/history"}
+          >
             <i className="fas fa-history"></i>
             <span>History</span>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </aside>
