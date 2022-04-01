@@ -11,6 +11,7 @@ import {
   HistoryProvider,
   LikesProvider,
   PlaylistProvider,
+  WatchLaterProvider,
 } from "./context/index";
 
 // Call make Server
@@ -24,9 +25,11 @@ ReactDOM.render(
           <HistoryProvider>
             <LikesProvider>
               <PlaylistProvider>
-                <CategoryProvider>
-                  <App />
-                </CategoryProvider>
+                <WatchLaterProvider>
+                  <CategoryProvider>
+                    <App />
+                  </CategoryProvider>
+                </WatchLaterProvider>
               </PlaylistProvider>
             </LikesProvider>
           </HistoryProvider>
