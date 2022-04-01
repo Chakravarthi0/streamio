@@ -63,7 +63,9 @@ function SingleVideo() {
               <i
                 className="fas fa-folder-plus gray pointer"
                 aria-hidden="true"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() =>
+                  token ? setIsModalOpen(true) : navigate("/signin")
+                }
               ></i>
             </div>
             <div className="channel-detail">

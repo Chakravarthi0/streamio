@@ -67,7 +67,7 @@ function VideoCard({ video }) {
             <li
               className="video-action"
               onClick={() => {
-                setIsModalOpen(true);
+                token ? setIsModalOpen(true) : navigate("/signin");
               }}
             >
               <i className="fas fa-folder-plus"></i>
