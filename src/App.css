@@ -1,6 +1,7 @@
 :root {
   --primary-color: #e9bc02;
   --primary-dark: #bf9b08;
+  --primary-transparent: rgb(233 187 2 / 35%);
 }
 
 * {
