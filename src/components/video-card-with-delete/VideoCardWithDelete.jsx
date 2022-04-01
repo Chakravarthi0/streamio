@@ -6,7 +6,7 @@ function VideoCardWithDelete({ video, onDelete }) {
   return (
     <div className="video-card-with-delete">
       <VideoCard video={video} />
-      <div className="delete-btn-container" onClick={() => onDelete(video._id)}>
+      <div className="delete-btn-container" onClick={() => onDelete()}>
         <i
           className="fas fa-trash-alt delete-playlist-btn"
           aria-hidden="true"
