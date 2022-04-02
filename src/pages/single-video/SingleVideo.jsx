@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { PlaylistsListModal } from "../../components/index";
 import { useParams, useNavigate } from "react-router-dom";
-import { useVideos, useLikes, useAuth } from "../../context/index";
+import {
+  useVideos,
+  useLikes,
+  useAuth,
+  useWatchLater,
+} from "../../context/index";
 import "./single-video.css";
 
 function SingleVideo() {
@@ -11,6 +16,11 @@ function SingleVideo() {
   } = useAuth();
   const { videos } = useVideos();
 
+  const {
+    watchLaterState: { watchLater },
+    addToWatchLater,
+    removeFromWatchLater,
+  } = useWatchLater();
   const {
     likesState: { likes },
     addToLikes,
@@ -24,6 +34,8 @@ function SingleVideo() {
   const video = videos.find((video) => video._id === videoId);
 
   const isLiked = likes.find((ele) => ele._id === videoId);
+
+  const isInWatchLater = watchLater.find((item) => item._id === videoId);
 
   return (
     <div className="single-video">
@@ -59,7 +71,20 @@ function SingleVideo() {
                     : () => navigate("/signin")
                 }
               ></i>
-              <i className="fas fa-clock gray pointer" aria-hidden="true"></i>
+              <i
+                className={
+                  `fas fa-clock pointer ` +
+                  (isInWatchLater ? "primary" : "gray")
+                }
+                aria-hidden="true"
+                onClick={
+                  token
+                    ? isInWatchLater
+                      ? () => removeFromWatchLater(video?._id)
+                      : () => addToWatchLater(video)
+                    : () => navigate("/signin")
+                }
+              ></i>
               <i
                 className="fas fa-folder-plus gray pointer"
                 aria-hidden="true"

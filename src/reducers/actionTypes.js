@@ -16,4 +16,10 @@ const playlistActions = {
   SET_ERROR: "SET_ERROR",
 };
 
-export { authActions, likesActions, playlistActions };
+const watchLaterActions = {
+  SET_WATCH_LATER: "SET_WATCH_LATER",
+  SET_LOADING: "SET_LOADING",
+  SET_ERROR: "SET_ERROR",
+};
+
+export { authActions, likesActions, playlistActions, watchLaterActions };
