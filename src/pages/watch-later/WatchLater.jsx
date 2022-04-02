@@ -7,24 +7,22 @@ import "./watch-later.css";
 function WatchLater() {
   const {
     watchLaterState: { watchLater, loading, error },
-    addToWatchLater,
-    removeFromWatchLater,
   } = useWatchLater();
   return (
     <div>
       <h1 className="page-title text-center">Watch later</h1>
-      <div className="videos-container">
         {loading && <Loader isFullScreen={true} />}
+      <div className="videos-container">
 
-        {error && <LoadingError />}
+        {error && <LoadingError isFullScreen={true} />}
 
-        {watchLater.length > 0 &&
+        {(watchLater.length > 0 && !loading) &&
           watchLater.map((video) => (
             <VideoCard key={video._id} video={video} />
           ))}
       </div>
       {watchLater.length === 0 && !error && (
-        <h2 className="text-center">No liked videos</h2>
+        <h2 className="text-center">No videos here.</h2>
       )}
     </div>
   );
