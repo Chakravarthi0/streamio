@@ -1,8 +1,65 @@
-.category-list-container{
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0 1rem;
-    justify-content: center;
-    overflow-x: auto;
-    padding: 0 0 1.5rem 2rem;
+.hero-section {
+  min-height: 77.5vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: rgba(240, 240, 240, 0.301);
+  padding: 2rem;
+}
+
+.app-name {
+  margin: 2rem 0rem;
+  font-size: 7.5rem;
+  font-family: "Yellowtail", cursive;
+  letter-spacing: 8px;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-size: 4.2rem;
+  letter-spacing: 3px;
+}
+
+.category-list-container {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1rem;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0 0 1.5rem 2rem;
+}
+
+.home-category {
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1100px) {
+  .app-name {
+    font-size: 5.5rem;
+  }
+  .hero-description {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .app-name {
+    font-size: 3.5rem;
+  }
+  .hero-description {
+    font-size: 2.1rem;
+  }
 }

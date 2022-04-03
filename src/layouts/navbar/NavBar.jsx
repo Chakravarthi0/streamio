@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { SearchBar } from "../../components/index";
 import { useAuth } from "../../context/index";
 import { useLocation, Link } from "react-router-dom";
 import { SideNav } from "./SideNav";
@@ -9,7 +10,6 @@ function NavBar() {
     authState: { token },
   } = useAuth();
   const { pathname } = useLocation();
-
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
@@ -31,10 +31,7 @@ function NavBar() {
         <SideNav setIsNavOpen={setIsNavOpen} token={token} signOut={signOut} />
       )}
 
-      <div className="nav-search-container nav-search icon">
-        <i className="fa fa-search" aria-hidden="true"></i>
-        <input className="nav-search-input" placeholder="Search" />
-      </div>
+      {pathname === "/explore" && <SearchBar />}
 
       <nav>
         <ul className={"list nav-links-container"}>
