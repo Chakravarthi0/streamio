@@ -42,6 +42,6 @@
     display: none;
   }
   .explore-nav {
-    display: flex !important;
+    display: flex;
   }
 }
