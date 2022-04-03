@@ -6,7 +6,8 @@
   cursor: pointer;
 }
 
-.chips-container:hover{
-    background-color: var(--primary-color);
-    color: var(--white-pure);
+.chips-container:hover,
+.chip-active {
+  background-color: var(--primary-color);
+  color: var(--white-pure);
 }
