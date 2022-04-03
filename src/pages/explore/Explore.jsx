@@ -33,12 +33,12 @@ function Explore() {
           ele.channel.toLowerCase().includes(searchKey.toLowerCase())
       );
     }
-    if(sortBy === "ascending"){
-      res = res.sort((a,b) => new Date(b.uploadDate) - new Date(a.uploadDate))
-      console.log("des After sort...", res)
-    }else  if(sortBy === "descending"){
-      res = res.sort((a,b) => new Date(a.uploadDate) - new Date(b.uploadDate))
-      console.log("asc After sort...", res)
+    if (sortBy === "ascending") {
+      res = res.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+      console.log("des After sort...", res);
+    } else if (sortBy === "descending") {
+      res = res.sort((a, b) => new Date(a.uploadDate) - new Date(b.uploadDate));
+      console.log("asc After sort...", res);
     }
     return res;
   };
@@ -96,4 +96,4 @@ function Explore() {
   );
 }
 
-export { Explore }u
+export { Explore };
