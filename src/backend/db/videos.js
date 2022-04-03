@@ -3,6 +3,8 @@
  * You can add videos of your wish with different attributes
  * */
 
+import dayjs from "dayjs";
+
 export const videos = [
   {
     _id: "LWGJA9i18Co",
@@ -14,6 +16,7 @@ export const videos = [
     views: "24M",
     duration: "3:22",
     created: "4 years",
+    uploadDate: dayjs("2018-11-24"),
   },
   {
     _id: "DYed5whEf4g",
@@ -25,6 +28,7 @@ export const videos = [
     views: "768k",
     duration: "2:45",
     created: "2 weeks",
+    uploadDate: dayjs("2022-02-10"),
   },
   {
     _id: "2osdz9Z5JKY",
@@ -36,6 +40,7 @@ export const videos = [
     views: "9M",
     duration: "16:27",
     created: "1 year",
+    uploadDate: dayjs("2021-03-04"),
   },
   {
     _id: "Nhq8aMleECo",
@@ -47,6 +52,7 @@ export const videos = [
     views: "400k",
     duration: "12:08",
     created: "1 year",
+    uploadDate: dayjs("2021-03-02"),
   },
   {
     _id: "eqVZEHWmwVQ",
@@ -58,6 +64,7 @@ export const videos = [
     views: "160K",
     duration: "6:06",
     created: "3 months",
+    uploadDate: dayjs("2022-01-25"),
   },
   {
     _id: "VD9-CfEXctU",
@@ -70,6 +77,7 @@ export const videos = [
     views: "9M",
     duration: "13:25",
     created: "4 years",
+    uploadDate: dayjs("2018-06-01"),
   },
   {
     _id: "YR0VAVBH3qY",
@@ -81,6 +89,7 @@ export const videos = [
     views: "7.2M",
     duration: "18:09",
     created: "2 years",
+    uploadDate: dayjs("2020-07-09"),
   },
   {
     _id: "du70TojOi_A",
@@ -92,5 +101,6 @@ export const videos = [
     views: "3M",
     duration: "13:43",
     created: "2 years",
+    uploadDate: dayjs("2020-01-21"),
   },
 ];
