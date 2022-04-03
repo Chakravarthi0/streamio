@@ -90,16 +90,10 @@ function Explore() {
           {filteredVideos.map((video) => (
             <VideoCard key={video._id} video={video} />
           ))}
-          {/* {videos.map((video) => (
-            <VideoCard key={video._id} video={video} />
-          ))}
-          {videos.map((video) => (
-            <VideoCard key={video._id} video={video} />
-          ))} */}
         </div>
       )}
     </div>
   );
 }
 
-export { Explore };
+export { Explore }u
