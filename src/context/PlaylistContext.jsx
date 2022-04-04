@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { useAuth } from "./index";
 import { playlistReducer, playlistActions } from "../reducers/index";
+import toast from "react-hot-toast";
 
 const playlistContext = createContext([]);
 
@@ -69,10 +70,12 @@ function PlaylistProvider({ children }) {
           type: SET_PLAYLISTS,
           payload: response.data.playlists,
         });
+        toast.success("Playlist created successfully");
       }
     } catch (err) {
       console.log(err);
       playlistsDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       playlistsDispatch({ type: SET_LOADING, payload: false });
     }
@@ -93,10 +96,12 @@ function PlaylistProvider({ children }) {
           type: SET_PLAYLISTS,
           payload: response.data.playlists,
         });
+        toast.success("Playlist deleted successfully");
       }
     } catch (err) {
       console.log(err);
       playlistsDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       playlistsDispatch({ type: SET_LOADING, payload: false });
     }
@@ -121,10 +126,12 @@ function PlaylistProvider({ children }) {
           type: SET_PLAYLIST,
           payload: response.data.playlist,
         });
+        toast.success("video added to the playlist");
       }
     } catch (err) {
       console.log(err);
       playlistsDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       playlistsDispatch({ type: SET_LOADING, payload: false });
     }
@@ -148,10 +155,12 @@ function PlaylistProvider({ children }) {
           type: SET_PLAYLIST,
           payload: response.data.playlist,
         });
+        toast.success("video deleted from the playlist");
       }
     } catch (err) {
       console.log(err);
       playlistsDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       playlistsDispatch({ type: SET_LOADING, payload: false });
     }
