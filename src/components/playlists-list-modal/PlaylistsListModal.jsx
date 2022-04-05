@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { usePlaylist } from "../../context/index";
 import { Loader } from "../index";
+import toast from "react-hot-toast";
 import "./playlists-list-modal.css";
 
 function PlaylistsListModal({ setIsModalOpen, video }) {
@@ -63,9 +64,13 @@ function PlaylistsListModal({ setIsModalOpen, video }) {
               <button
                 className="btn btn-primary btn-wide"
                 onClick={() => {
-                  createPlaylist(playlistName);
-                  setPlaylistName("");
-                  setIsCreatingPlaylist(false);
+                  if (playlistName !== "") {
+                    createPlaylist(playlistName);
+                    setPlaylistName("");
+                    setIsCreatingPlaylist(false);
+                  } else {
+                    toast.error("Playlist name cannot be empty");
+                  }
                 }}
               >
                 Create

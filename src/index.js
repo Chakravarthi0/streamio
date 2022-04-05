@@ -14,6 +14,7 @@ import {
   WatchLaterProvider,
   FiltersProvider,
 } from "./context/index";
+import { Toaster } from "react-hot-toast";
 
 // Call make Server
 makeServer();
@@ -21,6 +22,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Toaster position="top-center" />
       <AuthProvider>
         <VideosProvider>
           <HistoryProvider>

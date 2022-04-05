@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { useAuth } from "./index";
 import { watchLaterActions, watchLaterReducer } from "../reducers";
+import toast from "react-hot-toast";
 
 const watchLaterContext = createContext([]);
 
@@ -63,10 +64,12 @@ function WatchLaterProvider({ children }) {
           type: SET_WATCH_LATER,
           payload: response.data.watchlater,
         });
+        toast.success("Video has been added to watch later");
       }
     } catch (err) {
       console.log(err);
       watchLaterDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       watchLaterDispatch({ type: SET_LOADING, payload: false });
     }
@@ -85,10 +88,12 @@ function WatchLaterProvider({ children }) {
           type: SET_WATCH_LATER,
           payload: response.data.watchlater,
         });
+        toast.success("Video has been removed to watch later");
       }
     } catch (err) {
       console.log(err);
       watchLaterDispatch({ type: SET_ERROR, payload: true });
+      toast.error(err.response.data.error[0]);
     } finally {
       watchLaterDispatch({ type: SET_LOADING, payload: false });
     }

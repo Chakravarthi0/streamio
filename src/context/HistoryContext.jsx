@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useAuth } from "./index";
+import toast from "react-hot-toast";
 
 const historyContext = createContext([]);
 
@@ -66,9 +67,11 @@ function HistoryProvider({ children }) {
 
       if (response.status === 200) {
         setHistory(response.data.history);
+        toast.success("Video has been removed from history");
       }
     } catch (err) {
       console.log(err);
+      toast.error(err.response.data.error[0]);
     }
   };
 
@@ -79,12 +82,14 @@ function HistoryProvider({ children }) {
           authorization: token,
         },
       });
-
+      console.log(response);
       if (response.status === 200) {
         setHistory(response.data.history);
+        toast.success("History cleared");
       }
     } catch (err) {
       console.log(err);
+      toast.error(err.response.data.error[0]);
     }
   };
 
