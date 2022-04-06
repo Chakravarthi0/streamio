@@ -12,6 +12,7 @@ import {
   History,
   SinglePlaylist,
   LikedVideos,
+  NotFound,
 } from "../pages/index";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 
@@ -46,6 +47,7 @@ function AppRoutes() {
         <Route path="/liked" element={<LikedVideos />}></Route>
         <Route path="/history" element={<History />}></Route>
       </Route>
+      <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );
 }

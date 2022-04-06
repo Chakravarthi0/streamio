@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { PlaylistsListModal } from "../../components/index";
+import {
+  PlaylistsListModal,
+  NoteCard,
+  NoteInput,
+  Loader,
+} from "../../components/index";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   useVideos,
@@ -7,6 +12,7 @@ import {
   useAuth,
   useWatchLater,
 } from "../../context/index";
+import { useNotes } from "../../utils";
 import "./single-video.css";
 
 function SingleVideo() {
@@ -37,6 +43,12 @@ function SingleVideo() {
 
   const isInWatchLater = watchLater.find((item) => item._id === videoId);
 
+  const {
+    notesState: { notes, loading: notesLoading },
+    createNote,
+    deleteNote,
+    editNote,
+  } = useNotes(videoId);
   return (
     <div className="single-video">
       {isModalOpen && (
@@ -103,31 +115,29 @@ function SingleVideo() {
             </div>
           </div>
 
-          <div className="notes-container">
-            <h2 className="text-center">Notes</h2>
-            <input
-              className="input note-input"
-              type={"text"}
-              placeholder={"Title"}
-            />
-            <textarea className="input note-input note-text-area"></textarea>
-
-            <button className="btn btn-primary black">Add Note</button>
-
-            <div className="card">
-              <p className="card-title text-center">Title</p>
-              <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
-                in consequuntur quis.
-              </p>
-            </div>
-            <div className="card">
-              <p className="card-title text-center">Title</p>
-              <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
-                in consequuntur quis.
-              </p>
-            </div>
+          <div className="notes-section">
+            {notesLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <NoteInput
+                  createNote={createNote}
+                  videoId={videoId}
+                  token={token}
+                />
+                <div className="notes-container">
+                  {notes.length > 0 &&
+                    notes.map((note) => (
+                      <NoteCard
+                        key={note._id}
+                        note={note}
+                        editNote={editNote}
+                        deleteNote={deleteNote}
+                      />
+                    ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}

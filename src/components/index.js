@@ -9,4 +9,6 @@ export { VideoCardWithDelete } from "./video-card-with-delete/VideoCardWithDelet
 export { Loader } from "./loader/Loader";
 export { LoadingError } from "./loading-error/LoadingError";
 export { PlaylistsListModal } from "./playlists-list-modal/PlaylistsListModal";
-export {SearchBar} from "./search-bar/SearchBar"
+export { SearchBar } from "./search-bar/SearchBar";
+export { NoteCard } from "./note-card/NoteCard";
+export { NoteInput } from "./note-input/NoteInput";

@@ -37,20 +37,22 @@ function HistoryProvider({ children }) {
 
   const addToHistory = async (video) => {
     try {
-      let response = await axios.post(
-        "/api/user/history",
-        {
-          video,
-        },
-        {
-          headers: {
-            authorization: token,
+      if (!history.find((ele) => ele._id === video._id)) {
+        let response = await axios.post(
+          "/api/user/history",
+          {
+            video,
           },
-        }
-      );
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
 
-      if (response.status === 201) {
-        setHistory(response.data.history);
+        if (response.status === 201) {
+          setHistory(response.data.history);
+        }
       }
     } catch (err) {
       console.log(err);
