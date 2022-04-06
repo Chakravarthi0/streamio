@@ -64,6 +64,7 @@ function NoteInput({
       <textarea
         className="input note-input note-text-area"
         value={currentNote.content}
+        placeholder={"Content"}
         onChange={(e) =>
           setCurrentNote((prev) => ({ ...prev, content: e.target.value }))
         }
