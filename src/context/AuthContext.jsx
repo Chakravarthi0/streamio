@@ -48,7 +48,7 @@ function AuthProvider({ children }) {
       }
     } catch (err) {
       console.log(err);
-      toast.error(err.response.data.error[0]);
+      toast.error("Something went wrong, check the credentials and try again");
     }
   };
 
