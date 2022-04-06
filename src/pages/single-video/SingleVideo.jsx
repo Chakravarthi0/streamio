@@ -3,6 +3,7 @@ import {
   PlaylistsListModal,
   NoteCard,
   NoteInput,
+  Loader,
 } from "../../components/index";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -115,22 +116,28 @@ function SingleVideo() {
           </div>
 
           <div className="notes-section">
-            <NoteInput
-              createNote={createNote}
-              videoId={videoId}
-              token={token}
-            />
-            <div className="notes-container">
-              {notes.length > 0 &&
-                notes.map((note) => (
-                  <NoteCard
-                    key={note._id}
-                    note={note}
-                    editNote={editNote}
-                    deleteNote={deleteNote}
-                  />
-                ))}
-            </div>
+            {notesLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <NoteInput
+                  createNote={createNote}
+                  videoId={videoId}
+                  token={token}
+                />
+                <div className="notes-container">
+                  {notes.length > 0 &&
+                    notes.map((note) => (
+                      <NoteCard
+                        key={note._id}
+                        note={note}
+                        editNote={editNote}
+                        deleteNote={deleteNote}
+                      />
+                    ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}

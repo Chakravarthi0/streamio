@@ -46,11 +46,11 @@ function useNotes(videoId) {
   }, [token]);
 
   const createNote = async (note) => {
-    setNotesState((prevNotes) => ({
-      ...prevNotes,
-      loading: true,
-    }));
     try {
+      setNotesState((prevNotes) => ({
+        ...prevNotes,
+        loading: true,
+      }));
       let response = await axios.post(
         "/api/user/notes",
         { note },
@@ -81,6 +81,10 @@ function useNotes(videoId) {
 
   const editNote = async (noteId, note) => {
     try {
+      setNotesState((prevNotes) => ({
+        ...prevNotes,
+        loading: true,
+      }));
       let response = await axios.post(
         `/api/user/notes/${noteId}`,
         { note },
@@ -100,11 +104,20 @@ function useNotes(videoId) {
     } catch (err) {
       toast.error("Something went wrong");
       console.log(err);
+    } finally {
+      setNotesState((prevNotes) => ({
+        ...prevNotes,
+        loading: false,
+      }));
     }
   };
 
   const deleteNote = async (noteId) => {
     try {
+      setNotesState((prevNotes) => ({
+        ...prevNotes,
+        loading: true,
+      }));
       let response = await axios.delete(`/api/user/notes/${noteId}`, {
         headers: {
           authorization: token,
@@ -120,6 +133,11 @@ function useNotes(videoId) {
     } catch (err) {
       toast.error("Something went wrong");
       console.log(err);
+    } finally {
+      setNotesState((prevNotes) => ({
+        ...prevNotes,
+        loading: false,
+      }));
     }
   };
 
