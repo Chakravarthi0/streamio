@@ -78,8 +78,8 @@ function Explore() {
               }
             >
               <option value="">-</option>
-              <option value="ascending">Ascending</option>
-              <option value="descending">Descending</option>
+              <option value="ascending">Latest video first</option>
+              <option value="descending">Oldest video first</option>
             </select>
           </div>
         )}

@@ -63,7 +63,7 @@ function useNotes(videoId) {
       if (response.status === 201) {
         setNotesState((prevNotes) => ({
           ...prevNotes,
-          notes: response.data.notes,
+          notes: response.data.notes.filter((ele) => ele.videoId === videoId),
         }));
 
         toast.success("Note added successfully");
@@ -97,7 +97,7 @@ function useNotes(videoId) {
       if (response.status === 201) {
         setNotesState((prevNotes) => ({
           ...prevNotes,
-          notes: response.data.notes,
+          notes: response.data.notes.filter((ele) => ele.videoId === videoId),
         }));
         toast.success("Note updated");
       }
@@ -126,7 +126,7 @@ function useNotes(videoId) {
       if (response.status === 200) {
         setNotesState((prevNotes) => ({
           ...prevNotes,
-          notes: response.data.notes,
+          notes: response.data.notes.filter((ele) => ele.videoId === videoId),
         }));
         toast.success("Note deleted successfully");
       }
