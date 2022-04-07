@@ -13,19 +13,6 @@ function AsideNavBar() {
                 ? "link aside-nav-link active-aside-link"
                 : "link aside-nav-link gray"
             }
-            to={"/"}
-          >
-            <i className="fas fa-home"></i>
-            <span>Home</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "link aside-nav-link active-aside-link"
-                : "link aside-nav-link gray"
-            }
             to={"/explore"}
           >
             <i className="fas fa-compass"></i>

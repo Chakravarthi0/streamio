@@ -35,18 +35,6 @@ function SideNav({ setIsNavOpen, token, signOut }) {
               ? "link side-nav-link active-aside-link"
               : "link side-nav-link gray"
           }
-          to={"/"}
-        >
-          <i className="fas fa-home"></i>
-          <span>Home</span>
-        </NavLink>
-
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "link side-nav-link active-aside-link"
-              : "link side-nav-link gray"
-          }
           to={"/explore"}
         >
           <i className="fas fa-compass"></i>
