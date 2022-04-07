@@ -36,11 +36,11 @@ function AuthProvider({ children }) {
       const res = await axios.post("/api/auth/login", input);
 
       if (res.status === 200) {
-        const { encodedToken } = res.data;
+        const { encodedToken, foundUser: { firstName } } = res.data;
         localStorage.setItem("token", encodedToken);
         authDispatch({ type: SIGN_IN, payload: { token: encodedToken } });
         navigate("/");
-        toast.success("Signed in");
+        toast.success(`Hey!, ${firstName}`, { icon: "👋" });
       } else {
         toast.error(
           "Something went wrong, check the credentials and try again"
