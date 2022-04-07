@@ -141,8 +141,6 @@ function SingleVideo() {
           </div>
         </div>
       )}
-
-      <div></div>
     </div>
   );
 }
